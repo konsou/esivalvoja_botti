@@ -29,6 +29,7 @@ def main():
 
         if 'kadun' in message.content.lower():
             reply_msg = get_reaction(message.author.name, last_regrets_timestamps[message.author.id])
+            reply_msg = f"{reply_msg} {message.author.mention}"
             last_regrets_timestamps[message.author.id] = time()
             print(reply_msg)
             await message.channel.send(reply_msg)

@@ -18,7 +18,7 @@ NEGATIVE_REACTIONS = [
 POSITIVE_REACTIONS = [
     "Totta kai saat anteeksi, rakas %name%! Katumuksesi on selvästi aitoa ja sinulla on aivan ilmeisesti Jehovan siunaus!",
     "Saat anteeksi tällä kertaa mutta rajoituksia kyllä tulee.",
-    "Saat anteeksi mutta tästä kyllä ilmoitetaan lavalla että varmasti tunnet nahoissasi.",
+    "Saat anteeksi mutta tästä kyllä ilmoitetaan lavalla että varmasti silti tunnet nahoissasi.",
     "KV on setäsi kummin kaima joten kaipa me jätetään tämä asia tähän.",
 ]
 
@@ -34,4 +34,4 @@ def get_reaction(user_name: str, last_regret_timestamp: float) -> str:
 
     reply = choice(reply_table)
     reply.replace('%name%', user_name)
-    return f"{reply} @{user_name}"
+    return f"{reply}"
