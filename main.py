@@ -13,6 +13,8 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 def main():
     client = discord.Client()
 
+    print(f"Bot starting...")
+
     # key: user id, value: timestamp of last regret
     last_regrets_timestamps: defaultdict[int, float] = defaultdict(lambda: 0)  # default value: 0
 
