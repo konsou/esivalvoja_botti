@@ -27,7 +27,8 @@ def main():
         if message.author == client.user:
             return
 
-        if 'kadun' in message.content.lower():
+        msg_lower = message.content.lower()
+        if any((s in msg_lower for s in ('kadun', 'kaduttaa', 'kadutaan'))):
             print(message.content)
             reply_msg = get_reaction(message.author.name, last_regrets_timestamps[message.author.id])
             reply_msg = f"{reply_msg} {message.author.mention}"
