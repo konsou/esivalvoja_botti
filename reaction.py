@@ -2,7 +2,9 @@ import json
 from time import time
 from random import choice, randint
 
-LAST_REGRET_ALLOWED_INTERVAL = 60  # seconds
+with open('options.json') as f:
+    LAST_REGRET_ALLOWED_INTERVAL = int(json.load(f)["last_regret_allowed_interval"])
+    print(f"Options loaded - LAST_REGRET_ALLOWED_INTERVAL: {LAST_REGRET_ALLOWED_INTERVAL}")
 
 with open('responses.json') as f:
     responses = json.load(f)
