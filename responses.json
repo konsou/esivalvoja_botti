@@ -1,0 +1,21 @@
+{
+  "too_soon": [
+    "Eiköhän tämä nyt tullut vähän liian nopeasti. Odottele jonkin aikaa niin katsotaan sitten.",
+    "Kyllä katumukseen kuuluu se, että ei nyt ihan heti rupea samaa tekemään.",
+    "Odotapa muutama hetki että tilanne vähän rauhoittuu. Katsotaan sitten uudestaan."
+  ],
+
+  "negative": [
+    "Et kyllä näytä *oikeasti* katuvan. On sellaista seurausten pahoittelua vain tuo.",
+    "Kadut kyllä mutta tämä tapaus on nyt sen verran julkinen että sinusta pitää tehdä esimerkki.",
+    "Syntisi oli teknisesti ottaen hyvin pieni mutta astuit Veli Vanhimman vaimon varpaille, joten erotus napsahtaa.",
+    "Olisihan tässä näitä lieventäviä asianhaaroja mutta lätkäpeli alkaa kohta eikä kiinnosta."
+  ],
+
+  "positive": [
+    "Totta kai saat anteeksi, rakas %name%! Katumuksesi on selvästi aitoa ja sinulla on aivan ilmeisesti Jehovan siunaus!",
+    "Saat anteeksi tällä kertaa mutta rajoituksia kyllä tulee.",
+    "Saat anteeksi mutta tästä kyllä ilmoitetaan lavalla että varmasti silti tunnet nahoissasi.",
+    "KV on setäsi kummin kaima joten kaipa me jätetään tämä asia tähän."
+  ]
+}
