@@ -27,9 +27,8 @@ def main():
         if message.author == client.user:
             return
 
-        print(message)
-
         if 'kadun' in message.content.lower():
+            print(message.content)
             reply_msg = get_reaction(message.author.name, last_regrets_timestamps[message.author.id])
             reply_msg = f"{reply_msg} {message.author.mention}"
             last_regrets_timestamps[message.author.id] = time()
