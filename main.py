@@ -1,9 +1,10 @@
 import os
+import json
 import discord
+
 from dotenv import load_dotenv
 from reaction import get_reaction
 from collections import defaultdict
-from typing import Dict
 from time import time
 
 load_dotenv()
@@ -14,6 +15,10 @@ def main():
     client = discord.Client()
 
     print(f"Bot starting...")
+
+    with open('triggers.json') as f:
+        trigger_words = json.load(f)['partial']
+        print(f"Trigger words loaded")
 
     # key: user id, value: timestamp of last regret
     last_regrets_timestamps: defaultdict[int, float] = defaultdict(lambda: 0)  # default value: 0
@@ -28,7 +33,7 @@ def main():
             return
 
         msg_lower = message.content.lower()
-        if any((s in msg_lower for s in ('kadun', 'kaduttaa', 'kadutaan'))):
+        if any((word in msg_lower for word in trigger_words)):
             print(message.content)
             reply_msg = get_reaction(message.author.name, last_regrets_timestamps[message.author.id])
             reply_msg = f"{reply_msg} {message.author.mention}"
