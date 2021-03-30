@@ -23,5 +23,5 @@ def get_response(user_name: str, last_regret_timestamp: float,
         reply_table = responses['positive']
 
     reply = choice(reply_table)
-    reply.replace('%name%', user_name)
+    reply = reply.replace('%name%', user_name)
     return f"{reply}"
