@@ -16,7 +16,7 @@ if ENVIRONMENT == 'development':
 elif ENVIRONMENT == 'production':
     TOKEN = os.getenv('DISCORD_TOKEN')
 else:
-    raise ValueError(f"Invalid ENVIRONMENT value - must be 'development' or 'production', was '{ENVIRONMENT}")
+    raise ValueError(f"Invalid ENVIRONMENT value - must be 'development' or 'production', was '{ENVIRONMENT}'")
 print(f"ENVIRONMENT: {ENVIRONMENT}")
 
 
