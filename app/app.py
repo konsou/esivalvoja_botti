@@ -1,6 +1,7 @@
 import os
 from collections import defaultdict
 from time import time
+from random import choice
 
 import discord
 from dotenv import load_dotenv
@@ -55,6 +56,11 @@ def main():
                 last_regrets_timestamps[message.author.id] = time()
                 print(reply_msg)
 
+                await message.channel.send(reply_msg)
+            else:  # no valid trigger words
+                print(message.content)
+                reply_msg = f"{choice(responses['dont_understand'])} {message.author.mention}"
+                print(reply_msg)
                 await message.channel.send(reply_msg)
 
     client.run(TOKEN)
