@@ -1,11 +1,13 @@
 import os
-import json
-import discord
-
-from dotenv import load_dotenv
-from app.reaction import get_reaction
 from collections import defaultdict
 from time import time
+
+import discord
+from dotenv import load_dotenv
+
+from app.options import Options
+from app.response import load_responses, get_response
+from app.triggers import load_triggers
 
 load_dotenv()
 
@@ -21,16 +23,15 @@ print(f"ENVIRONMENT: {ENVIRONMENT}")
 
 
 def main():
-    client = discord.Client()
-
-    print(f"Bot starting...")
-
-    with open('json_data/triggers.json', encoding='utf-8') as f:
-        trigger_words = json.load(f)['partial']
-        print(f"Trigger words loaded")
+    options = Options('options.json')
+    responses = load_responses('json_data/responses.json')
+    triggers = load_triggers('json_data/triggers.json')
 
     # key: user id, value: timestamp of last regret
     last_regrets_timestamps: defaultdict[int, float] = defaultdict(lambda: 0)  # default value: 0
+
+    client = discord.Client()
+    print(f"Bot starting...")
 
     @client.event
     async def on_ready():
@@ -42,9 +43,12 @@ def main():
             return
 
         msg_lower = message.content.lower()
-        if any((word in msg_lower for word in trigger_words)):
+        if any((word in msg_lower for word in triggers)):
             print(message.content)
-            reply_msg = get_reaction(message.author.name, last_regrets_timestamps[message.author.id])
+            reply_msg = get_response(user_name=message.author.name,
+                                     last_regret_timestamp=last_regrets_timestamps[message.author.id],
+                                     options=options,
+                                     responses=responses)
             reply_msg = f"{reply_msg} {message.author.mention}"
             last_regrets_timestamps[message.author.id] = time()
             print(reply_msg)
