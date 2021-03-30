@@ -8,7 +8,16 @@ from collections import defaultdict
 from time import time
 
 load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
+
+ENVIRONMENT = os.getenv('ENVIRONMENT')
+
+if ENVIRONMENT == 'development':
+    TOKEN = os.getenv('DISCORD_TOKEN_DEVELOPMENT')
+elif ENVIRONMENT == 'production':
+    TOKEN = os.getenv('DISCORD_TOKEN')
+else:
+    raise ValueError(f"Invalid ENVIRONMENT value - must be 'development' or 'production', was '{ENVIRONMENT}")
+print(f"ENVIRONMENT: {ENVIRONMENT}")
 
 
 def main():
@@ -16,7 +25,7 @@ def main():
 
     print(f"Bot starting...")
 
-    with open('triggers.json') as f:
+    with open('triggers.json', encoding='utf-8') as f:
         trigger_words = json.load(f)['partial']
         print(f"Trigger words loaded")
 
