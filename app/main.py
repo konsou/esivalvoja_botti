@@ -42,18 +42,19 @@ def main():
         if message.author == client.user:
             return
 
-        msg_lower = message.content.lower()
-        if any((word in msg_lower for word in triggers)):
-            print(message.content)
-            reply_msg = get_response(user_name=message.author.name,
-                                     last_regret_timestamp=last_regrets_timestamps[message.author.id],
-                                     options=options,
-                                     responses=responses)
-            reply_msg = f"{reply_msg} {message.author.mention}"
-            last_regrets_timestamps[message.author.id] = time()
-            print(reply_msg)
+        if client.user.mentioned_in(message):
+            msg_lower = message.content.lower()
+            if any((word in msg_lower for word in triggers)):
+                print(message.content)
+                reply_msg = get_response(user_name=message.author.name,
+                                         last_regret_timestamp=last_regrets_timestamps[message.author.id],
+                                         options=options,
+                                         responses=responses)
+                reply_msg = f"{reply_msg} {message.author.mention}"
+                last_regrets_timestamps[message.author.id] = time()
+                print(reply_msg)
 
-            await message.channel.send(reply_msg)
+                await message.channel.send(reply_msg)
 
     client.run(TOKEN)
 
