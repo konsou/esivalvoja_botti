@@ -9,6 +9,7 @@ from app.options import Options
 from app.response import load_responses, get_response
 from app.triggers import load_triggers
 
+
 load_dotenv()
 
 ENVIRONMENT = os.getenv('ENVIRONMENT')
@@ -23,9 +24,9 @@ print(f"ENVIRONMENT: {ENVIRONMENT}")
 
 
 def main():
-    options = Options('options.json')
-    responses = load_responses('json_data/responses.json')
-    triggers = load_triggers('json_data/triggers.json')
+    options = Options('app/options.json')
+    responses = load_responses('app/json_data/responses.json')
+    triggers = load_triggers('app/json_data/triggers.json')
 
     # key: user id, value: timestamp of last regret
     last_regrets_timestamps: defaultdict[int, float] = defaultdict(lambda: 0)  # default value: 0
