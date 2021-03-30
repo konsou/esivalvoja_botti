@@ -61,4 +61,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    print(f"Don't run this file as a script. Use the main.py in the project top folder.")
