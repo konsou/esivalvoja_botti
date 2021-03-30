@@ -2,11 +2,11 @@ import json
 from time import time
 from random import choice, randint
 
-with open('options.json', encoding='utf-8') as f:
+with open('json_data/options.json', encoding='utf-8') as f:
     LAST_REGRET_ALLOWED_INTERVAL = int(json.load(f)["last_regret_allowed_interval"])
     print(f"Options loaded - LAST_REGRET_ALLOWED_INTERVAL: {LAST_REGRET_ALLOWED_INTERVAL}")
 
-with open('responses.json', encoding='utf-8') as f:
+with open('json_data/responses.json', encoding='utf-8') as f:
     responses = json.load(f)
 
     TOO_SOON_REACTIONS = responses['too_soon']

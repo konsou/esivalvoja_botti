@@ -3,7 +3,7 @@ import json
 import discord
 
 from dotenv import load_dotenv
-from reaction import get_reaction
+from app.reaction import get_reaction
 from collections import defaultdict
 from time import time
 
@@ -25,7 +25,7 @@ def main():
 
     print(f"Bot starting...")
 
-    with open('triggers.json', encoding='utf-8') as f:
+    with open('json_data/triggers.json', encoding='utf-8') as f:
         trigger_words = json.load(f)['partial']
         print(f"Trigger words loaded")
 
