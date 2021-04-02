@@ -15,14 +15,16 @@ class TestEnvironment(unittest.TestCase):
         self.assertTrue(any(s == environment for s in ('production', 'development')),
                         "ENVIRONMENT must be 'production' or 'development'")
 
-        token_key_names = {
-            'production': 'DISCORD_TOKEN',
-            'development': 'DISCORD_TOKEN_DEVELOPMENT',
+        required_tokens = {
+            'production': ('DISCORD_TOKEN',),
+            'development': ('DISCORD_TOKEN_DEVELOPMENT',
+                            'DISCORD_TEST_CLIENT_TOKEN'),
         }
-        required_key_name = token_key_names[environment]
-        self.assertIsNotNone(os.getenv(required_key_name, default=None),
-                             f"must have a discord token set for {environment}: {required_key_name}")
-        self.assertTrue(len(os.getenv(required_key_name).strip()) == 59,
-                        f"discord token must be 59 characters long")
+
+        for token_name in required_tokens[environment]:
+            self.assertIsNotNone(os.getenv(token_name, default=None),
+                                 f"must have a discord token set for {environment}: {token_name}")
+            self.assertTrue(len(os.getenv(token_name).strip()) == 59,
+                            f"discord token {token_name} must be 59 characters long")
 
 
