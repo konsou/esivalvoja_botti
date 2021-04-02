@@ -18,6 +18,10 @@ jobs:
     environment: esivalvoja-testing
     runs-on: ubuntu-latest
 
+    env:
+      ENVIRONMENT: development
+      DISCORD_TOKEN_DEVELOPMENT: ${{ secrets.DISCORD_TOKEN_DEVELOPMENT }}
+
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
