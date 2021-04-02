@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 from app.options import Options
 from app.response import load_responses, get_response
-from app.triggers import load_triggers
+from app.triggers import load_triggers, is_activated
 
 
 load_dotenv()
@@ -46,7 +46,7 @@ def main():
 
         if client.user.mentioned_in(message):
             msg_lower = message.content.lower()
-            if any((word in msg_lower for word in triggers)):
+            if is_activated(msg_lower, triggers):
                 print(message.content)
                 reply_msg = get_response(user_name=message.author.name,
                                          last_regret_timestamp=last_regrets_timestamps[message.author.id],
