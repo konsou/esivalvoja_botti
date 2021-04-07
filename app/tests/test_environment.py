@@ -15,11 +15,15 @@ class TestEnvironment(unittest.TestCase):
         self.assertTrue(any(s == environment for s in ('production', 'development')),
                         "ENVIRONMENT must be 'production' or 'development'")
 
+        self.assertIsNotNone(os.getenv('BOT_KILL_COMMAND', default=None),
+                             "BOT_KILL_COMMAND must be set")
+
         required_tokens = {
             'production': ('DISCORD_TOKEN',),
             'development': ('DISCORD_TOKEN_DEVELOPMENT',
                             'DISCORD_TEST_CLIENT_TOKEN'),
         }
+
 
         for token_name in required_tokens[environment]:
             self.assertIsNotNone(os.getenv(token_name, default=None),
