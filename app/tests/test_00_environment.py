@@ -17,9 +17,12 @@ class TestEnvironment(unittest.TestCase):
 
         required_names_always = ('BOT_KILL_COMMAND', )
         required_names_production = ('DISCORD_TOKEN', )
-        required_names_development = ('DISCORD_TOKEN_DEVELOPMENT',
-                                      'DISCORD_TEST_CLIENT_TOKEN',
-                                      'DISCORD_TEST_CHANNEL_ID')
+        required_names_development = (
+            'DISCORD_TOKEN_DEVELOPMENT',
+            'DISCORD_TEST_CLIENT_TOKEN',
+            'DISCORD_TEST_CHANNEL_ID',
+            'DISCORD_DEV_BOT_ID',
+        )
 
         required_names = {
             'production': required_names_always + required_names_production,
