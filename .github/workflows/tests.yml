@@ -21,6 +21,8 @@ jobs:
     env:
       ENVIRONMENT: development
       DISCORD_TOKEN_DEVELOPMENT: ${{ secrets.DISCORD_TOKEN_DEVELOPMENT }}
+      DISCORD_TEST_CLIENT_TOKEN: ${{ secrets.DISCORD_TEST_CLIENT_TOKEN }}
+      BOT_KILL_COMMAND: ${{ secrets.BOT_KILL_COMMAND }}
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
