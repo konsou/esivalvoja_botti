@@ -40,8 +40,11 @@ def main():
         print(f'{client.user} has connected to Discord!')
 
     @client.event
-    async def on_error(e):
-        print(f"Error happened: {e}")
+    async def on_error(event, *args, **kwargs):
+        print(f"Error happened:")
+        print(event)
+        print(args)
+        print(kwargs)
 
     @client.event
     async def on_disconnect():
