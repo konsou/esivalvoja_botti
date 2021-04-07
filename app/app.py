@@ -40,13 +40,6 @@ def main():
         print(f'{client.user} has connected to Discord!')
 
     @client.event
-    async def on_error(event, *args, **kwargs):
-        print(f"Error happened:")
-        print(event)
-        print(args)
-        print(kwargs)
-
-    @client.event
     async def on_disconnect():
         print(f"Disconnected")
 
@@ -61,7 +54,7 @@ def main():
                 await client.close()
             return
 
-        if client.user.mentioned_in(message.content):
+        if client.user.mentioned_in(message):
             msg_lower = message.content.lower()
             if is_activated(msg_lower, triggers):
                 print(message.content)
