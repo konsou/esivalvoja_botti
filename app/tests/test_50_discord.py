@@ -7,7 +7,7 @@ import subprocess
 
 import discord
 from dotenv import load_dotenv
-from distest import TestCollector, run_dtest_bot
+from distest import TestCollector, run_command_line_bot
 
 # THIS FIXES AN "Event loop is closed" RuntimeError AFTER EXIT ON WINDOWS
 # The error is a known bug Python/Windows bug:
@@ -59,16 +59,22 @@ class TestDiscordIntegration(unittest.TestCase):
             await interface.send_message("Random comment")
             await interface.ensure_silence()
 
+        # TODO: When running tests the bot doesn't connect as it should
         # Run the main bot as a non-blocking process
         subprocess.Popen(["python3", "main.py"])
-        time.sleep(5)
-        run_dtest_bot([os.getenv('DISCORD_DEV_BOT_ID'),
-                       os.getenv('DISCORD_TEST_CLIENT_TOKEN'),
-                       "-c",
-                       os.getenv('DISCORD_TEST_CHANNEL_ID'),
-                       "-r",
-                       "all"],
-                      test_collector)
+        time.sleep(10)  # Wait for the bot to connect
+
+
+        # TODO: use run_command_line_bot(target, token, tests, channel_id, stats, collector, timeout)
+        # https://distest.readthedocs.io/en/feature-add_documentation/distest.html
+        run_command_line_bot(
+                             os.getenv('DISCORD_DEV_BOT_ID'),
+                             os.getenv('DISCORD_TEST_CLIENT_TOKEN'),
+                             "all",
+                             os.getenv('DISCORD_TEST_CHANNEL_ID'),
+                             True,
+                             test_collector,
+                             5)
 
         # test
 
