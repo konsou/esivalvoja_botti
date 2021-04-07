@@ -3,7 +3,7 @@ import json
 
 
 class TestJson(unittest.TestCase):
-    def test_load_ok(self):
+    def test_load_json_ok(self):
         """
         Test that JSON files can be loaded without an error
         """
