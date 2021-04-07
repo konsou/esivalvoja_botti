@@ -8,9 +8,9 @@ import asyncio
 import discord
 from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
-
+'''
 class TestTriggers(unittest.TestCase):
     def test_can_join_server(self):
         """
@@ -45,3 +45,5 @@ class TestTriggers(unittest.TestCase):
         time.sleep(5)
         print("after")
         print(f"client closed: {client.is_closed()}")
+
+'''
