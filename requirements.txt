@@ -3,3 +3,4 @@ python-dotenv
 singleton-decorator
 nose2
 mypy
+distest
