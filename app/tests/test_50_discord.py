@@ -37,3 +37,19 @@ class TestDiscordIntegration(unittest.TestCase):
 
         client.run(token)
 
+    # def test_discord_functions(self):
+    #     """
+    #     Test that the bot responds as it should
+    #     """
+    #
+    #     # TODO: THIS
+    #     bot_token = os.getenv('DISCORD_TOKEN_DEVELOPMENT')
+    #     bot_client = discord.Client()
+    #     test_client_token = os.getenv('DISCORD_TEST_CLIENT_TOKEN')
+    #     test_client_client = discord.Client()
+    #
+    #
+    #     # bot_client.run(bot_token)
+    #     # test
+
+
