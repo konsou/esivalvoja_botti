@@ -2,9 +2,16 @@ import unittest
 import os
 import time
 import asyncio
+import platform
 
 import discord
 from dotenv import load_dotenv
+
+# THIS FIXES AN "Event loop is closed" RuntimeError AFTER EXIT ON WINDOWS
+# The error is a known bug Python/Windows bug:
+# https://github.com/Rapptz/discord.py/issues/5209#issuecomment-670161023
+if platform.system() == 'Windows':
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 
 load_dotenv()
 
@@ -19,9 +26,6 @@ class TestDiscordIntegration(unittest.TestCase):
 
         client = discord.Client()
 
-        # THIS WORKS OTHERWISE BUT THROWS AN "Event loop is closed" RuntimeError AFTER EXIT
-        # May be a Windows bug?
-
         @client.event
         async def on_ready():
             await client.close()
@@ -32,6 +36,4 @@ class TestDiscordIntegration(unittest.TestCase):
             raise
 
         client.run(token)
-        print("after")
-        print(f"client closed: {client.is_closed()}")
 
