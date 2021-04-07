@@ -40,11 +40,25 @@ def main():
         print(f'{client.user} has connected to Discord!')
 
     @client.event
+    async def on_error(e):
+        print(f"Error happened: {e}")
+
+    @client.event
+    async def on_disconnect():
+        print(f"Disconnected")
+
+    @client.event
     async def on_message(message):
         if message.author == client.user:
             return
 
-        if client.user.mentioned_in(message):
+        if not message.guild:  # is a DM
+            if os.getenv('BOT_KILL_COMMAND') in message.content:
+                await message.author.send('valid kill command')
+                await client.close()
+            return
+
+        if client.user.mentioned_in(message.content):
             msg_lower = message.content.lower()
             if is_activated(msg_lower, triggers):
                 print(message.content)
