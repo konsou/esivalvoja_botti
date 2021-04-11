@@ -48,6 +48,10 @@ def main():
         if message.author == client.user:
             return
 
+        if message.content.lower() == "ping?":
+            await message.channel.send("pong!")
+            return
+
         if not message.guild:  # is a DM
             if os.getenv('BOT_KILL_COMMAND') in message.content:
                 await message.author.send('valid kill command')
