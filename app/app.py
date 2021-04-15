@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 from app.options import Options
 from app.response import load_responses, get_response
-from app.triggers import load_triggers
+from app.triggers import load_triggers, is_activated
 
 
 load_dotenv()
@@ -40,13 +40,27 @@ def main():
         print(f'{client.user} has connected to Discord!')
 
     @client.event
+    async def on_disconnect():
+        print(f"Disconnected")
+
+    @client.event
     async def on_message(message):
         if message.author == client.user:
             return
 
+        if message.content.lower() == "ping?":
+            await message.channel.send("pong!")
+            return
+
+        if not message.guild:  # is a DM
+            if os.getenv('BOT_KILL_COMMAND') in message.content:
+                await message.author.send('valid kill command')
+                await client.close()
+            return
+
         if client.user.mentioned_in(message):
             msg_lower = message.content.lower()
-            if any((word in msg_lower for word in triggers)):
+            if is_activated(msg_lower, triggers):
                 print(message.content)
                 reply_msg = get_response(user_name=message.author.name,
                                          last_regret_timestamp=last_regrets_timestamps[message.author.id],

@@ -3,7 +3,7 @@ name: tests
 on:
   push:
     branches:
-      - "**"
+      - "main"
   pull_request:
     branches:
       - "**"
@@ -11,13 +11,22 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   tests:
+    environment: esivalvoja-testing
     runs-on: ubuntu-latest
 
+    env:
+      ENVIRONMENT: development
+      DISCORD_TOKEN_DEVELOPMENT: ${{ secrets.DISCORD_TOKEN_DEVELOPMENT }}
+      DISCORD_TEST_CLIENT_TOKEN: ${{ secrets.DISCORD_TEST_CLIENT_TOKEN }}
+      BOT_KILL_COMMAND: ${{ secrets.BOT_KILL_COMMAND }}
+      DISCORD_TEST_CHANNEL_ID: ${{ secrets.DISCORD_TEST_CHANNEL_ID }}
+      DISCORD_DEV_BOT_ID: ${{ secrets.DISCORD_DEV_BOT_ID }}
+
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
       - name: Update pip
@@ -25,7 +34,13 @@ jobs:
       - name: Install Python packages
         run: pip3 install -r requirements.txt
 
+      - name: Type checking
+        run: mypy main.py
+
       - name: Run tests
         run: nose2 -v
+
+      - name: Run Discord integration tests
+        run: app/tests_discord/test_discord_full_integration.sh
 
 
