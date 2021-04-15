@@ -1,8 +1,4 @@
-"""
-A functional demo of all possible test cases. This is the format you will want to use with your testing bot.
-    Run with:
-        python example_tests.py TARGET_NAME TESTER_TOKEN
-"""
+# TODO: THESE TESTS
 import asyncio
 import sys
 from distest import TestCollector
