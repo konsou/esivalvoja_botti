@@ -1,5 +1,7 @@
 import unittest
+import time
 
+from app.options import Options
 from app.response import load_responses, get_response
 
 
@@ -25,26 +27,29 @@ class TestResponses(unittest.TestCase):
                                                         f"\"{value}\"\n"
                                                         f"actual value:\n"
                                                         f"\"{responses[key][0]}\"")
-    #
-    # def test_trigger_activation(self):
-    #     """
-    #     Test that triggers activate correctly
-    #     """
-    #     triggers = load_triggers('app/json_data/triggers.json')
-    #     test_triggers_positive = (triggers['partial'][0],
-    #                               "kaduttaa",
-    #                               "kyllä nyt iski katumus :(",
-    #                               )
-    #     test_triggers_negative = ("well this shouldn't activate",
-    #                               f"{triggers['partial'][0][:-1]}!!",
-    #                               )
-    #     for t in test_triggers_positive:
-    #         self.assertTrue(is_activated(t, triggers),
-    #                         f"trigger should activate: \"{t}\"")
-    #
-    #     for t in test_triggers_negative:
-    #         self.assertFalse(is_activated(t, triggers),
-    #                          f"trigger shouldn't activate: \"{t}\"")
-    #
-    #
-    #
+
+    def test_response(self):
+        """
+        Test response functionality
+        """
+        responses = load_responses('app/json_data/responses.json')
+        options = Options('app/options.json')
+
+        self.assertIn(get_response(user_name='test_user',
+                                   last_regret_timestamp=time.time(),
+                                   options=options,
+                                   responses=responses),
+                      responses['too_soon'],
+                      f"too_soon response should activate")
+
+        fake_responses = {
+            'positive': ["Test %name% replacement"],
+            'negative': ["Test %name% replacement"],
+        }
+
+        self.assertIn('test_user',
+                      get_response(user_name='test_user',
+                                   last_regret_timestamp=0,
+                                   options=options,
+                                   responses=fake_responses),
+                      f"%name% should be replaced with user name")

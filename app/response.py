@@ -15,12 +15,15 @@ def load_responses(response_filename: str) -> Dict[str, str]:
 def get_response(user_name: str, last_regret_timestamp: float,
                  options, responses: dict) -> str:
     # print(f"In get_response - user_name: {user_name}, last_regret_timestamp: {last_regret_timestamp}")
+    # print(f"options: {options}, responses: {responses}")
     if (time() - last_regret_timestamp) < options.LAST_REGRET_ALLOWED_INTERVAL:
         reply_table = responses['too_soon']
     elif randint(0, 1) == 0:
         reply_table = responses['negative']
     else:
         reply_table = responses['positive']
+
+    # print(f"reply_table: {reply_table}")
 
     reply = choice(reply_table)
     reply = reply.replace('%name%', user_name)
