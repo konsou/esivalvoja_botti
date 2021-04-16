@@ -4,7 +4,7 @@ from singleton_decorator import singleton
 
 @singleton
 class Options:
-    def __init__(self, options_filename: str = 'options.json'):
+    def __init__(self, options_filename: str):
         with open(options_filename, encoding='utf-8') as f:
             _options = json.load(f)
 
