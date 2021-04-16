@@ -4,7 +4,7 @@ from random import choice, randint
 from typing import Dict
 
 
-def load_responses(response_filename:str = 'json_data/responses.json') -> Dict[str, str]:
+def load_responses(response_filename: str = 'json_data/responses.json') -> Dict[str, str]:
     with open(response_filename, encoding='utf-8') as f:
         responses = json.load(f)
 
