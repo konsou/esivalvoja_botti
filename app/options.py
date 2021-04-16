@@ -9,6 +9,6 @@ class Options:
             _options = json.load(f)
 
         print(f"Options loaded")
-        print(_options)
+        # print(_options)
 
         self.LAST_REGRET_ALLOWED_INTERVAL = int(_options["last_regret_allowed_interval"])
