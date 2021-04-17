@@ -1,12 +1,9 @@
 # TODO: MORE OF THESE TESTS
-import asyncio
 import sys
 import os
 
 from distest import TestCollector
 from distest import run_dtest_bot
-from discord import Embed, Member, Status
-from distest import TestInterface
 from distest.exceptions import ResponseDidNotMatchError
 
 from dotenv import load_dotenv
@@ -33,6 +30,7 @@ async def test_silence(interface):
     await interface.send_message("Esivalvoja tai esivalvoja-testing: mitä kuuluu?")
     await interface.send_message("Testing for silence")
     await interface.send_message("Shhhhh...")
+
 
 @test_collector()
 async def test_mention_dont_understand(interface):
