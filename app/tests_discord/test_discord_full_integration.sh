@@ -12,8 +12,9 @@ python main.py &
 BOT_PID=$!
 echo "Bot PID is ${BOT_PID}"
 echo "Wait for bot to start and connect..."
-sleep 10
+sleep 5
 echo "Start the tester bot and run tests..."
+export PYTHONPATH=$(pwd)  # set the currend working directory as PYTHONPATH. Needed for imports to work in the following script.
 python app/tests_discord/tester_bot.py --channel "${DISCORD_TEST_CHANNEL_ID}" --run all "${DISCORD_DEV_BOT_ID}" "${DISCORD_TEST_CLIENT_TOKEN}"
 TESTER_RESULT=$?
 
