@@ -58,7 +58,7 @@ def main():
                 await client.close()
             return
 
-        if client.user.mentioned_in(message):
+        if client.user in message.mentions:  # done this way to NOT respond to @everyone and @here
             msg_lower = message.content.lower()
             if is_activated(msg_lower, triggers):
                 print(message.content)

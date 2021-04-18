@@ -45,5 +45,15 @@ async def test_mention_dont_understand(interface):
         raise ResponseDidNotMatchError(error_msg)
 
 
+@test_collector()
+async def test_dont_reply_to_everyone_or_here(interface):
+    """
+    Don't reply to @everyone and @here
+    """
+    await interface.ensure_silence()
+    await interface.send_message(f"<@everyone>")
+    await interface.send_message(f"<@here>")
+
+
 if __name__ == "__main__":
     run_dtest_bot(sys.argv, test_collector)
