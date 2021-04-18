@@ -2,7 +2,7 @@
 import sys
 import os
 
-from distest import TestCollector
+from distest import TestCollector, TestInterface
 from distest import run_dtest_bot
 from distest.exceptions import ResponseDidNotMatchError
 
@@ -17,7 +17,7 @@ created_channel = None
 
 
 @test_collector()
-async def test_ping(interface):
+async def test_ping(interface: TestInterface):
     await interface.assert_reply_contains("ping?", "pong!")
 
 
