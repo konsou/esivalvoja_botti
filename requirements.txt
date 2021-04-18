@@ -4,3 +4,6 @@ singleton-decorator
 nose2
 mypy
 distest
+requests
+google-cloud-translate==2.0.1
+google-auth
