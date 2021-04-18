@@ -26,10 +26,10 @@ async def test_silence(interface):
     """
     Don't reply if not mentioned
     """
-    await interface.ensure_silence()
     await interface.send_message("Esivalvoja tai esivalvoja-testing: mitä kuuluu?")
     await interface.send_message("Testing for silence")
     await interface.send_message("Shhhhh...")
+    await interface.ensure_silence()
 
 
 @test_collector()
@@ -50,9 +50,9 @@ async def test_dont_reply_to_everyone_or_here(interface):
     """
     Don't reply to @everyone and @here
     """
+    await interface.send_message(f"@everyone")
+    await interface.send_message(f"@here")
     await interface.ensure_silence()
-    await interface.send_message(f"<@everyone>")
-    await interface.send_message(f"<@here>")
 
 
 if __name__ == "__main__":
