@@ -1,6 +1,8 @@
 {
-  "partial": [
-    "kadu",
-    "katu"
-  ]
+  "regret": {
+    "partial": [
+      "kadu",
+      "katu"
+    ]
+  }
 }
