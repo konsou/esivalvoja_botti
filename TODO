@@ -4,4 +4,5 @@
 * esivalvojalta voi kysyä elämänohjeita
 * testejä!
 * quotes ja translate async!
+* tests for RAPIDAPI_KEY and GOOGLE_TRANSLATE_API_KEY
 * hae jw.borgista päivänteksti, johon simppeliä sanakorvausta
