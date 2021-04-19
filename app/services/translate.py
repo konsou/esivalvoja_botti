@@ -1,27 +1,36 @@
-from google.cloud import translate_v2 as translate
+import os
+
+import requests
 from dotenv import load_dotenv
 
 load_dotenv()
 
+API_URL = "https://translation.googleapis.com/language/translate/v2"
 
-def translate_text(text: str) -> str:
+
+def translate_text(text: str,
+                   source_language: str = 'en',
+                   target_language: str = 'fi') -> str:
     """Translates text into the target language.
 
-    Target must be an ISO 639-1 language code.
+    Target and source must be an ISO 639-1 language code.
     See https://g.co/cloud/translate/v2/translate-reference#supported_languages
     """
-    translate_client = translate.Client()
 
-    # Text can also be a sequence of strings, in which case this method
-    # will return a sequence of results for each text.
-    result = translate_client.translate(text,
-                                        target_language='fi',
-                                        source_language='en-US')
+    query_params = {
+        "q": text,
+        "source": source_language,
+        "target": target_language,
+        "format": "text",
+        "key": os.getenv('GOOGLE_TRANSLATE_API_KEY'),
+    }
 
-    print(f"Text: {text}")
-    print(f"Translation: {result['translatedText']}")
-    print(f"Detected source language: {result['detectedSourceLanguage']}")
-    return result['translatedText']
+    response = requests.post(API_URL,
+                             params=query_params)
+
+    response_json = response.json()
+
+    return response_json['data']['translations'][0]['translatedText']
 
 
 if __name__ == '__main__':
