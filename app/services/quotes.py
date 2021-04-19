@@ -5,20 +5,33 @@ import requests
 
 load_dotenv()
 
-API_ENDPOINT = "https://uncovered-treasure-v1.p.rapidapi.com"
+API_BASE_URL = "https://uncovered-treasure-v1.p.rapidapi.com"
+API_REQUEST_HEADERS = {
+    "x-rapidapi-key": os.getenv('RAPIDAPI_KEY'),
+    "x-rapidapi-host": "uncovered-treasure-v1.p.rapidapi.com",
+}
+API_ENDPOINTS = {
+    'random': '/random',
+    'today': '/today',
+}
 
 
-def get_random_quote() -> str:
-    url = f"{API_ENDPOINT}/random"
-    response = requests.get(url,
-                            headers={
-                                "x-rapidapi-key": os.getenv('RAPIDAPI_KEY'),
-                                "x-rapidapi-host": "uncovered-treasure-v1.p.rapidapi.com",
-                            })
+def _fetch_quote(quote_type: str) -> str:
+    url = f"{API_BASE_URL}{API_ENDPOINTS[quote_type]}"
+    response = requests.get(url, headers=API_REQUEST_HEADERS)
     result_quote = response.json()['results'][0]
     return_string = f"{result_quote['text']} ({', '.join(result_quote['scriptures'])})"
     return return_string
 
 
+def random_quote() -> str:
+    return _fetch_quote('random')
+
+
+def daily_quote() -> str:
+    return _fetch_quote('today')
+
+
 if __name__ == "__main__":
-    print(get_random_quote())
+    print(daily_quote())
+    print(random_quote())
