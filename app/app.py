@@ -9,6 +9,7 @@ from dotenv import load_dotenv
 from app.options import Options
 from app.response import load_responses, get_response
 from app.triggers import load_triggers, is_activated
+from app.services import daily_text
 from app.services.quotes import daily_quote
 from app.services.translate import translate_text
 
@@ -80,9 +81,13 @@ def main():
                 print(reply_msg)
                 await message.channel.send(reply_msg)
             elif activated_trigger == 'daily_text':
-                quote = daily_quote()
-                translated_quote = translate_text(quote, source_language='en', target_language='fi')
-                reply_msg = f"{translated_quote} {message.author.mention}"
+                if not daily_text.result_is_cached():
+                    await message.channel.send(f"Hetkinen vain, kaivan päiväntekstikirjasen hyllystä...")
+
+                text = await daily_text.daily_text()
+                # quote = daily_quote()
+                # translated_quote = translate_text(quote, source_language='en', target_language='fi')
+                reply_msg = f"Tässäpä sinulle tämän päivän teksti {message.author.mention}:\n\n{text} "
                 print(reply_msg)
                 await message.channel.send(reply_msg)
 
