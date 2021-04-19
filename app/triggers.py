@@ -1,6 +1,5 @@
 import json
-import re
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 Trigger = List[str]
 TriggersForCategory = Dict[str, Trigger]
@@ -14,10 +13,12 @@ def load_triggers(triggers_filename: str) -> AllTriggers:
     return trigger_words
 
 
-def is_activated(message: str, triggers: AllTriggers) -> bool:
+def is_activated(message: str, triggers: AllTriggers) -> Optional[str]:
+    """Return the name of the trigger or None if no triggers activate"""
     message = message.lower()
-    # message = re.sub(r'[\W_]+', '', message)  # strip non-alphanumeric characters
-    # print(f"in is_activated")
-    # print(f"message: {message}")
-    # print(f"triggers:\n{triggers}")
-    return any((trigger_word in message for trigger_word in triggers['regret']['partial']))
+    for trigger_name, values in triggers.items():
+        for partial_trigger in values['partial']:
+            if partial_trigger in message:
+                return trigger_name
+    return None
+
