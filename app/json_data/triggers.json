@@ -4,5 +4,12 @@
       "kadu",
       "katu"
     ]
+  },
+  "daily_text": {
+    "partial": [
+      "päivän teksti",
+      "päivänteksti",
+      "päivän sana"
+    ]
   }
 }
