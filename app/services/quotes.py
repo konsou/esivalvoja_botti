@@ -31,7 +31,3 @@ def random_quote() -> str:
 def daily_quote() -> str:
     return _fetch_quote('today')
 
-
-if __name__ == "__main__":
-    print(daily_quote())
-    print(random_quote())

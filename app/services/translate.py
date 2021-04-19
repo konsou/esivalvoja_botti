@@ -32,8 +32,3 @@ def translate_text(text: str,
 
     return response_json['data']['translations'][0]['translatedText']
 
-
-if __name__ == '__main__':
-    test_text = "God's people speaking clearly by the Spirit what is revealed in the Word build up (mature) " \
-                "the body of Christ. (1 Corinthians 14:1 - 20, 26, 39)"
-    print(translate_text(test_text))
