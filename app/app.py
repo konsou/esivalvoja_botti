@@ -9,6 +9,8 @@ from dotenv import load_dotenv
 from app.options import Options
 from app.response import load_responses, get_response
 from app.triggers import load_triggers, is_activated
+from app.services.quotes import daily_quote
+from app.services.translate import translate_text
 
 
 load_dotenv()
@@ -60,7 +62,14 @@ def main():
 
         if client.user in message.mentions:  # done this way to NOT respond to @everyone and @here
             msg_lower = message.content.lower()
-            if is_activated(msg_lower, triggers):
+            activated_trigger = is_activated(msg_lower, triggers)
+            if activated_trigger is None:
+                # no valid trigger words
+                print(message.content)
+                reply_msg = f"{choice(responses['dont_understand'])} {message.author.mention}"
+                print(reply_msg)
+                await message.channel.send(reply_msg)
+            elif activated_trigger == 'regret':
                 print(message.content)
                 reply_msg = get_response(user_name=message.author.name,
                                          last_regret_timestamp=last_regrets_timestamps[message.author.id],
@@ -69,11 +78,11 @@ def main():
                 reply_msg = f"{reply_msg} {message.author.mention}"
                 last_regrets_timestamps[message.author.id] = time()
                 print(reply_msg)
-
                 await message.channel.send(reply_msg)
-            else:  # no valid trigger words
-                print(message.content)
-                reply_msg = f"{choice(responses['dont_understand'])} {message.author.mention}"
+            elif activated_trigger == 'daily_text':
+                quote = daily_quote()
+                translated_quote = translate_text(quote, source_language='en', target_language='fi')
+                reply_msg = f"{translated_quote} {message.author.mention}"
                 print(reply_msg)
                 await message.channel.send(reply_msg)
 
