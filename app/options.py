@@ -12,3 +12,4 @@ class Options:
         # print(_options)
 
         self.LAST_REGRET_ALLOWED_INTERVAL = int(_options["last_regret_allowed_interval"])
+        self.FUNNIFY_WORD_REPLACE_CHANCE = float(_options["funnify_word_replace_chance"])
