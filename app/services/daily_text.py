@@ -11,7 +11,7 @@ from bs4 import BeautifulSoup
 @dataclass
 class CachedResult:
     result: Optional[str]
-    last_request_timestamp: int
+    last_request_timestamp: float
 
 
 _cached_result = CachedResult(result=None, last_request_timestamp=0)
@@ -25,7 +25,7 @@ def result_is_cached() -> bool:
            time.time() - _cached_result.last_request_timestamp < CACHE_INVALIDATION_TIME
 
 
-async def daily_text() -> str:
+async def daily_text() -> Optional[str]:
     if result_is_cached():
         print(f"cached request was fetched {time.time() - _cached_result.last_request_timestamp} s ago")
         print(f"using cached result")
