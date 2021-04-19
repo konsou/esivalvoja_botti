@@ -1,4 +1,5 @@
 import os
+import json
 from collections import defaultdict
 from time import time
 from random import choice
@@ -10,8 +11,7 @@ from app.options import Options
 from app.response import load_responses, get_response
 from app.triggers import load_triggers, is_activated
 from app.services import daily_text
-from app.services.quotes import daily_quote
-from app.services.translate import translate_text
+from app.funnify_text import funnify_text
 
 
 load_dotenv()
@@ -31,6 +31,9 @@ def main():
     options = Options('app/options.json')
     responses = load_responses('app/json_data/responses.json')
     triggers = load_triggers('app/json_data/triggers.json')
+
+    with open('app/json_data/string_replacements.json', encoding='utf8') as f:
+        funnify_text_replacements = json.load(f)
 
     # key: user id, value: timestamp of last regret
     last_regrets_timestamps: defaultdict[int, float] = defaultdict(lambda: 0)  # default value: 0
@@ -85,6 +88,9 @@ def main():
                     await message.channel.send(f"Hetkinen vain, kaivan päiväntekstikirjasen hyllystä...")
 
                 text = await daily_text.daily_text()
+                text = funnify_text(text=text,
+                                    text_replacements=funnify_text_replacements,
+                                    options=options)
                 # quote = daily_quote()
                 # translated_quote = translate_text(quote, source_language='en', target_language='fi')
                 reply_msg = f"Tässäpä sinulle tämän päivän teksti {message.author.mention}:\n\n{text} "
