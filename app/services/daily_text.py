@@ -23,11 +23,13 @@ CACHE_INVALIDATION_TIME = 3600  # seconds
 
 
 def result_is_cached(date: datetime = None) -> bool:
-    c_date = _cached_result.date
-    if (_cached_result.result is None or
-            _cached_result.date is None or
-            date is None):
+    if date is None:
+        date = datetime.now()
+
+    if _cached_result.result is None or _cached_result.date is None:
         return False
+
+    c_date = _cached_result.date
     return (time.time() - _cached_result.last_request_timestamp < CACHE_INVALIDATION_TIME and
             (date.day == c_date.day and date.month == c_date.month and date.year == c_date.year))
 
