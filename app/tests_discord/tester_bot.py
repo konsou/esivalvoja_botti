@@ -17,11 +17,6 @@ created_channel = None
 
 
 @test_collector()
-async def test_ping(interface: TestInterface):
-    await interface.assert_reply_contains("ping?", "pong!")
-
-
-@test_collector()
 async def test_silence(interface):
     """
     Don't reply if not mentioned
