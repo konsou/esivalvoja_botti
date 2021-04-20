@@ -70,10 +70,6 @@ if __name__ == '__main__':
         tomorrow = today + timedelta(days=1)
         yesterday = today - timedelta(days=1)
 
-        print(await daily_text())
-        print(await daily_text(today))
-        print(await daily_text(tomorrow))
-        print(await daily_text(yesterday))
         print(await daily_text(yesterday))
 
 
