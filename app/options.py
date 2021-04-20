@@ -9,7 +9,6 @@ class Options:
             _options = json.load(f)
 
         print(f"Options loaded")
-        # print(_options)
 
-        self.LAST_REGRET_ALLOWED_INTERVAL = int(_options["last_regret_allowed_interval"])
-        self.FUNNIFY_WORD_REPLACE_CHANCE = float(_options["funnify_word_replace_chance"])
+        self.last_regret_allowed_interval = int(_options["last_regret_allowed_interval"])
+        self.funnify_word_replace_chance = float(_options["funnify_word_replace_chance"])

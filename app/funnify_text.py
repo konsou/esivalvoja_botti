@@ -17,7 +17,7 @@ def funnify_text(text: str,
         match_lower = match_string.lower()
         starts_with_uppercase = match_string[0].isupper()
 
-        if random.random() <= options.FUNNIFY_WORD_REPLACE_CHANCE:
+        if random.random() <= options.funnify_word_replace_chance:
             return_string = random.choice(text_replacements[match_lower])
         else:
             return_string = match_string

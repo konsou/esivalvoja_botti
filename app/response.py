@@ -16,7 +16,7 @@ def get_response(user_name: str, last_regret_timestamp: float,
                  options, responses: dict) -> str:
     # print(f"In get_response - user_name: {user_name}, last_regret_timestamp: {last_regret_timestamp}")
     # print(f"options: {options}, responses: {responses}")
-    if (time() - last_regret_timestamp) < options.LAST_REGRET_ALLOWED_INTERVAL:
+    if (time() - last_regret_timestamp) < options.last_regret_allowed_interval:
         reply_table = responses['too_soon']
     elif randint(0, 1) == 0:
         reply_table = responses['negative']
