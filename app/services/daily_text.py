@@ -39,11 +39,11 @@ async def daily_text(date: datetime = None) -> Optional[str]:
         date = datetime.now()
 
     if result_is_cached(date=date):
-        print(f"cached request was fetched {time.time() - _cached_result.last_request_timestamp} s ago")
-        print(f"using cached result")
+        # print(f"cached request was fetched {time.time() - _cached_result.last_request_timestamp} s ago")
+        # print(f"using cached result")
         return _cached_result.result
 
-    print(f"No valid cache, re-fetching daily text...")
+    print(f"No valid cache, fetching daily text...")
 
     full_url = f"{BASE_URL}{date.year}/{date.month}/{date.day}"
     print(f"full url: {full_url}")
@@ -53,7 +53,6 @@ async def daily_text(date: datetime = None) -> Optional[str]:
         # Mimic a real browser for MUCH better performance
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:87.0) Gecko/20100101 Firefox/87.0'}
         async with session.get(full_url, headers=headers) as resp:
-            print(resp.status)
             html = await resp.text()
             soup = BeautifulSoup(html, "html.parser")
             theme_scripture = soup.find_all('p', {'class': 'themeScrp'})[1].get_text().strip()
