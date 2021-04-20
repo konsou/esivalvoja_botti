@@ -7,7 +7,7 @@ def funnify_text(text: str,
                  text_replacements: dict,
                  options) -> str:
 
-    def test_match(match) -> str:
+    def replace_match(match) -> str:
         match_string = match.group(0)
         match_lower = match_string.lower()
         starts_with_uppercase = match_string[0].isupper()
@@ -26,7 +26,7 @@ def funnify_text(text: str,
     words_with_pipes = "|".join(words_to_replace)
     expression = f'\\b({words_with_pipes})\\b'
     funny_text = re.sub(expression,
-                        test_match,
+                        replace_match,
                         text,
                         flags=re.IGNORECASE)
     return funny_text
