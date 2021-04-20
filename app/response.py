@@ -11,7 +11,7 @@ ResponseList = List[str]
 AllResponses = Dict[str, ResponseList]
 
 
-def load_responses(response_filename: str) -> Dict[str, str]:
+def load_responses(response_filename: str) -> AllResponses:
     with open(response_filename, encoding='utf-8') as f:
         responses = json.load(f)
 
