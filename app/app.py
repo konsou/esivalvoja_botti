@@ -54,13 +54,9 @@ def main():
         if message.author == client.user:
             return
 
-        if message.content.lower() == "ping?":
-            await message.channel.send("pong!")
-            return
-
         if not message.guild:  # is a DM
             if os.getenv('BOT_KILL_COMMAND') in message.content:
-                await message.author.send('valid kill command')
+                await message.author.send('valid kill command - disconnecting')
                 await client.close()
             return
 
@@ -91,8 +87,6 @@ def main():
                 text = funnify_text(text=text,
                                     text_replacements=funnify_text_replacements,
                                     options=options)
-                # quote = daily_quote()
-                # translated_quote = translate_text(quote, source_language='en', target_language='fi')
                 reply_msg = f"Tässäpä sinulle tämän päivän teksti {message.author.mention}:\n\n{text} "
                 print(reply_msg)
                 await message.channel.send(reply_msg)

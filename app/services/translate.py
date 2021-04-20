@@ -1,3 +1,4 @@
+# DEPRECATED - REMOVE
 import os
 
 import requests
