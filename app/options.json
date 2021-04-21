@@ -1,4 +1,4 @@
 {
   "last_regret_allowed_interval": 15,
-  "funnify_word_replace_chance": 0.6
+  "funnify_word_replace_chance": 0.75
 }
