@@ -1,58 +1,354 @@
 {
-  "aina": ["aina joskus", "ei koskaan"],
-  "asioissa": ["jutuissa", "jutskissa", "judansseissa"],
-  "avulla": ["kanssa"],
-  "edustaa": ["vastakuvaa"],
-  "edustavat": ["vastakuvaavat"],
-  "ei": ["ei varmaankaan"],
-  "erilainen": ["samanlainen"],
-  "fariseukset": ["farmaseutit"],
-  "heidän": ["niitten"],
-  "hänen": ["sen"],
-  "ihme": ["kummistus"],
-  "ihmiset": ["tyypit", "kaverit"],
-  "ikeeni": ["ikeneni"],
-  "ja": ["ynnä", "sekä"],
-  "jeesus": ["jee sus", "se puuseppäkaveri"],
-  "jeesuksen": ["jessen"],
-  "jeesuksesta": ["jessestä", "siitä pienemmästä j:stä"],
-  "jehova": ["jahvetti", "iso J"],
-  "johtajat": ["pomot", "liiderit"],
-  "jumalaa": ["taivaan pomoa", "isoa Diktaattoria"],
-  "jumalan": ["justuksen", "saatanan", "jumatsuikkelin"],
-  "jumalasta": ["saatanasta", "naapurin Jormasta"],
-  "kaikkia": ["noin puolia", "ei juuri ketään"],
-  "kirkkaanpunaisen": ["helakanpunaisen"],
-  "oletko": ["ootko muuten"],
-  "oli": ["oli varmaankin", "ei ollut"],
-  "olivat": ["oli", "ei ollut"],
-  "on": ["ei ole", "on kuulemma", "on kait", "ei todellakaan ole"],
-  "opettanut": ["\"opettanut\""],
-  "ottakaa": ["ottakaatten"],
-  "minun": ["mnun", "miun", "mun"],
-  "minusta": ["musta"],
-  "nämä": ["nää"],
-  "nöyrä": ["nöyristelevä"],
-  "nöyrät": ["huonolla itsetunnolla varustetut"],
-  "palvella": ["liehitellä"],
-  "peto": ["monsteri", "hirvistys"],
-  "saavat": ["saa", "saavat luvan"],
-  "se": ["\"se\"", "tuo"],
-  "suuren": ["ison", "pienen", "isohkon", "aika jättimäisen"],
-  "suuri": ["pieni", "keskikokoinen", "aika iso"],
-  "suurta": ["pientä", "keskikokoista"],
-  "prostituoidun": ["porstitu.. do.. dui.. PORTON"],
-  "prostituutioon": ["prostutiituoon"],
-  "ryöstävät": ["pöllii"],
-  "tuho": ["murha", "tappo", "teloitus"],
-  "tuhoamiseen": ["murhaamiseen"],
-  "tämä": ["tää"],
-  "valoi": ["pisti", "törkki"],
-  "valtoja": ["pomoja", "perskeleen poliitikkoja", "herra isoherroja"],
-  "vaatimattomasti": ["nöyristellen"],
-  "varmoja": ["epävarmoja", "varmahkoja"],
-  "voimaa": ["heikkoutta"],
-  "väärän": ["oikean", "hauskan", "kieron"],
-  "ylpeitä": ["varustettuja terveellä itsetunnolla"],
-  "ystävällisillä": ["vihamielisillä"]
+    "aina": [
+        "aina joskus",
+        "ei koskaan"
+    ],
+    "auttaa": [
+        "auttaa",
+        "ei auta"
+    ],
+    "auttavat": [
+        "auttavat",
+        "eivät auta"
+    ],
+    "ei": [
+        "ei varmaankaan"
+    ],
+    "fariseukset": [
+        "farmaseutit"
+    ],
+    "heikkouksiin": [
+        "vahvuuksiin",
+        "heikkouksiin"
+    ],
+    "hengellisesti": [
+        "henkseleistä"
+    ],
+    "hengellisyytemme": [
+        "yhteytemme toiseen ulottuvuuteen"
+    ],
+    "henki": [
+        "henki",
+        "hengitys"
+    ],
+    "herran": [
+        "rouvan",
+        "herran"
+    ],
+    "hyvin": [
+        "huonosti",
+        "hyvin"
+    ],
+    "hyviä": [
+        "hyviä",
+        "huonoja",
+        "keskinkertaisia"
+    ],
+    "hyvä": [
+        "hyvä",
+        "huono"
+    ],
+    "hyvää": [
+        "hyvää",
+        "huonoa",
+        "pahaa"
+    ],
+    "ihme": [
+        "ihme",
+        "tieteellisesti vaikeasti selitettävissä oleva asia"
+    ],
+    "ikeeni": [
+        "ikeneni"
+    ],
+    "jeesuksella": [
+        "jessellä",
+        "puuseppämiehellä"
+    ],
+    "jeesuksen": [
+        "jessen"
+    ],
+    "jeesuksesta": [
+        "jessestä",
+        "siitä pienemmästä j:stä"
+    ],
+    "jeesus": [
+        "jee sus",
+        "se puuseppäkaveri"
+    ],
+    "jeesusta": [
+        "jesseä",
+        "pikku-J:tä"
+    ],
+    "jehova": [
+        "jahvetti",
+        "iso J"
+    ],
+    "jehovaa": [
+        "jahvea",
+        "J:tä",
+        "sitä ylintä kulttijohtajaa"
+    ],
+    "jehovaan": [
+        "isoonveljeen"
+    ],
+    "jehovalle": [
+        "jahvetille",
+        "jeppulille"
+    ],
+    "jehovalta": [
+        "jabadabaduulta"
+    ],
+    "jehovan": [
+        "pilvikaverin",
+        "J-miehen"
+    ],
+    "johtajat": [
+        "pomot",
+        "liiderit"
+    ],
+    "julkaisuja": [
+        "propagandamateriaaleja"
+    ],
+    "jumala": [
+        "yläkerran mielikuvitusystävä"
+    ],
+    "jumalaa": [
+        "taivaan pomoa",
+        "isoa Diktaattoria"
+    ],
+    "jumalaan": [
+        "imaginääriseen olentoon"
+    ],
+    "jumalalta": [
+        "jupeilta"
+    ],
+    "jumalan": [
+        "justuksen",
+        "saatanan",
+        "jumatsuikkelin"
+    ],
+    "jumalasta": [
+        "saatanasta",
+        "naapurin Jormasta"
+    ],
+    "järjestön": [
+        "\"tän meidän jutun\""
+    ],
+    "järkevää": [
+        "järkevää",
+        "tyhmää"
+    ],
+    "kaikkia": [
+        "noin puolia",
+        "ei juuri ketään"
+    ],
+    "kannattaa": [
+        "kannattaa",
+        "ei kannata"
+    ],
+    "kokoukset": [
+        "indoktrinointi-istunnot"
+    ],
+    "kokouksiin": [
+        "niihin \"istu hiljaa ja kuuntele propagandaa\" -tilaisuuksiin"
+    ],
+    "kokouksissa": [
+        "kokkelipartyissä"
+    ],
+    "kokouksista": [
+        "zoom-palavereista"
+    ],
+    "kristittyjen": [
+        "kulttiin kuuluvien"
+    ],
+    "luotat": [
+        "luotat",
+        "et luota"
+    ],
+    "meitä": [
+        "teitä",
+        "meitä (eli kaikkia paitsi korkeammalla hierarkiassa olevia)"
+    ],
+    "moitteettomia": [
+        "moitteettomia",
+        "moitteellisia"
+    ],
+    "nöyrille": [
+        "niille",
+        " joilla on huono itsetunto"
+    ],
+    "nöyrä": [
+        "nöyristelevä"
+    ],
+    "nöyrät": [
+        "huonolla itsetunnolla varustetut"
+    ],
+    "on": [
+        "on",
+        "ei ole",
+        "on kuulemma",
+        "on varmaankin",
+        "ei todellakaan ole"
+    ],
+    "onneksi": [
+        "onneksi",
+        "epäonneksi"
+    ],
+    "paholaisen": [
+        "perkeleen"
+    ],
+    "palvella": [
+        "liehitellä"
+    ],
+    "palveluksen": [
+        "orjatyön"
+    ],
+    "palvomme": [
+        "nöyristelemme"
+    ],
+    "pelastaa": [
+        "pelastaa (normaalilta ja tasapainoiselta elämältä)"
+    ],
+    "peto": [
+        "monsteri",
+        "hirvistys"
+    ],
+    "pienten": [
+        "isojen",
+        "minikokoisten",
+        "törkeän suurten"
+    ],
+    "pietari": [
+        "Iso P"
+    ],
+    "profeetta": [
+        "huru-ukko"
+    ],
+    "profetia": [
+        "outo höpinä"
+    ],
+    "profetian": [
+        "horinan"
+    ],
+    "prostituoidun": [
+        "porstitu.. do.. dui.. PORTON"
+    ],
+    "prostituutioon": [
+        "prostutiituoon"
+    ],
+    "puhtaina": [
+        "puhtaina",
+        "likaisina"
+    ],
+    "raamattua": [
+        "satukirjaa"
+    ],
+    "rakastamaan": [
+        "rakastamaan",
+        "vihaamaan"
+    ],
+    "rauhassa": [
+        "rauhassa",
+        "sodassa"
+    ],
+    "rukoile": [
+        "puhele itseksesi"
+    ],
+    "saatana": [
+        "Lemmy Kilmister"
+    ],
+    "saatanan": [
+        "Raymond Franzin"
+    ],
+    "sisartemme": [
+        "systereitten"
+    ],
+    "suuren": [
+        "suuren",
+        "ison",
+        "pienen",
+        "isohkon",
+        "aika jättimäisen"
+    ],
+    "suuri": [
+        "suuri",
+        "pieni",
+        "keskikokoinen",
+        "aika iso"
+    ],
+    "suurta": [
+        "suurta",
+        "pientä",
+        "keskikokoista"
+    ],
+    "suvereenin": [
+        "tosi ison pomon"
+    ],
+    "synnin": [
+        "oikeinteon"
+    ],
+    "syntini": [
+        "normaalit toimintani"
+    ],
+    "tahrattomia": [
+        "tahrattomia",
+        "tahraisia"
+    ],
+    "tuho": [
+        "murha",
+        "tappo",
+        "teloitus"
+    ],
+    "tuhoamiseen": [
+        "murhaamiseen"
+    ],
+    "turvallisuusriski": [
+        "paloturvallisuusriski"
+    ],
+    "uskoa": [
+        "herkkäuskoisuutta"
+    ],
+    "uskomme": [
+        "vahvistusharhamme",
+        "kukkaromme"
+    ],
+    "vaatimattomasti": [
+        "nöyristellen",
+        "huonolla itsetunnolla"
+    ],
+    "vainoa": [
+        "sitä, että joku on eri mieltä"
+    ],
+    "vapauttaa": [
+        "vapauttaa (rahoista ja vapaa-ajasta)"
+    ],
+    "varmoja": [
+        "epävarmoja",
+        "varmahkoja"
+    ],
+    "veljiemme": [
+        "brouskien"
+    ],
+    "viisaita": [
+        "viisaita",
+        "tyhmiä"
+    ],
+    "viisautta": [
+        "viisautta",
+        "tyhmyyttä"
+    ],
+    "voimaa": [
+        "heikkoutta"
+    ],
+    "väärän": [
+        "oikean",
+        "hauskan",
+        "kieron"
+    ],
+    "ylpeitä": [
+        "varustettuja terveellä itsetunnolla"
+    ],
+    "ystävällisillä": [
+        "vihamielisillä"
+    ]
 }
