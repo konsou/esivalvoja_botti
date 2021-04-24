@@ -23,7 +23,7 @@ def funnify_text(text: str,
             return_string = match_string
 
         if starts_with_uppercase:
-            return_string = return_string.capitalize()
+            return_string = return_string[0].upper() + return_string[1:]
 
         return return_string
 
