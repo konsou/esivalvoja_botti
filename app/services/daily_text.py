@@ -34,14 +34,14 @@ def result_is_cached(date: datetime = None) -> bool:
             (date.day == c_date.day and date.month == c_date.month and date.year == c_date.year))
 
 
-async def daily_text(date: datetime = None) -> Optional[str]:
+async def daily_text(date: datetime = None) -> str:
     if date is None:
         date = datetime.now()
 
     if result_is_cached(date=date):
         # print(f"cached request was fetched {time.time() - _cached_result.last_request_timestamp} s ago")
         # print(f"using cached result")
-        return _cached_result.result
+        return _cached_result.result if _cached_result.result is not None else 'invalid cached result'
 
     print(f"No valid cache, fetching daily text...")
 
