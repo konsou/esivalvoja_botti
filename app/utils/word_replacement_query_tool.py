@@ -33,10 +33,11 @@ async def main():
     while running:
         dtext = await daily_text(day)
         words = re.split(r"\W+", dtext)
-        for word in words:
+        for word_number, word in enumerate(words):
             if not word or not word.isalpha():
                 continue
-            print(f'"{word.lower()}"')
+            print("------------------------------------------------")
+            print(f'"{word.lower()}" ({word_number + 1} / {len(words)})')
 
             try:
                 print(replacements[word.lower()])
@@ -75,6 +76,8 @@ async def main():
 
             print(replacements[word.lower()])
             _save_json(replacements=replacements, filename=replacements_json_filename)
+
+        day = day + timedelta(days=1)
 
     print(f"Saving JSON...")
     _save_json(replacements=replacements, filename=replacements_json_filename)
