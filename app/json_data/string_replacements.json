@@ -1,6 +1,7 @@
 {
     "aina": [
-        "aina joskus",
+        "aina",
+        "joskus",
         "ei koskaan"
     ],
     "auttaa": [
@@ -12,6 +13,7 @@
         "eivät auta"
     ],
     "ei": [
+        "ei",
         "ei varmaankaan"
     ],
     "fariseukset": [
@@ -102,10 +104,6 @@
         "pilvikaverin",
         "J-miehen"
     ],
-    "johtajat": [
-        "pomot",
-        "liiderit"
-    ],
     "julkaisuja": [
         "propagandamateriaaleja"
     ],
@@ -139,6 +137,7 @@
         "tyhmää"
     ],
     "kaikkia": [
+        "kaikkia",
         "noin puolia",
         "ei juuri ketään"
     ],
@@ -150,7 +149,7 @@
         "indoktrinointi-istunnot"
     ],
     "kokouksiin": [
-        "niihin \"istu hiljaa ja kuuntele propagandaa\" -tilaisuuksiin"
+        "\"istu hiljaa ja kuuntele propagandaa\" -tilaisuuksiin"
     ],
     "kokouksissa": [
         "kokkelipartyissä"
@@ -174,8 +173,7 @@
         "moitteellisia"
     ],
     "nöyrille": [
-        "niille",
-        " joilla on huono itsetunto"
+        "niille, joilla on huono itsetunto"
     ],
     "nöyrä": [
         "nöyristelevä"
@@ -245,7 +243,8 @@
     ],
     "rakastamaan": [
         "rakastamaan",
-        "vihaamaan"
+        "vihaamaan",
+        "näyttelemään rakkautta"
     ],
     "rauhassa": [
         "rauhassa",
@@ -255,13 +254,19 @@
         "puhele itseksesi"
     ],
     "saatana": [
-        "Lemmy Kilmister"
+        "Lemmy Kilmister",
+        "Raymond Franz",
+        "Lloyd Evans",
+        "Johanneksen poika"
     ],
     "saatanan": [
-        "Raymond Franzin"
+        "Lemmy Kilmisterin",
+        "Raymond Franzin",
+        "Lloyd Evansin",
+        "Johanneksen pojan"
     ],
     "sisartemme": [
-        "systereitten"
+        "naispuolisten kulttilaistovereidemme"
     ],
     "suuren": [
         "suuren",
@@ -288,7 +293,7 @@
         "oikeinteon"
     ],
     "syntini": [
-        "normaalit toimintani"
+        "normaali toimintani"
     ],
     "tahrattomia": [
         "tahrattomia",
@@ -309,8 +314,7 @@
         "herkkäuskoisuutta"
     ],
     "uskomme": [
-        "vahvistusharhamme",
-        "kukkaromme"
+        "vahvistusharhamme"
     ],
     "vaatimattomasti": [
         "nöyristellen",
@@ -323,11 +327,12 @@
         "vapauttaa (rahoista ja vapaa-ajasta)"
     ],
     "varmoja": [
+        "varmoja",
         "epävarmoja",
         "varmahkoja"
     ],
     "veljiemme": [
-        "brouskien"
+        "miespuolisten kulttilaistovereidemme"
     ],
     "viisaita": [
         "viisaita",
@@ -338,6 +343,7 @@
         "tyhmyyttä"
     ],
     "voimaa": [
+        "voimaa",
         "heikkoutta"
     ],
     "väärän": [
