@@ -1,9 +1,5 @@
-discord.py
-python-dotenv
-singleton-decorator
-nose2
-mypy
-distest
-requests
-beautifulsoup4
-aiohttp
+aiohttp==3.7.4.post0
+beautifulsoup4==4.9.3
+discord.py==1.7.1
+python-dotenv==0.17.0
+singleton-decorator==1.0.0
