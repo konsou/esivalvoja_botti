@@ -53,13 +53,13 @@ async def main():
             if user_input == '':
                 continue
 
-            if user_input == 'p':
-                day = day - timedelta(days=1)
+            if user_input == 'n':
+                day = day + timedelta(days=1)
                 print(day)
                 break
 
-            if user_input == 'n':
-                day = day + timedelta(days=1)
+            if user_input == 'p':
+                day = day - timedelta(days=1)
                 print(day)
                 break
 

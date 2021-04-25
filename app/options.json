@@ -1,4 +1,8 @@
 {
   "last_regret_allowed_interval": 15,
-  "funnify_word_replace_chance": 1
+
+  "funnify_text_replacement_file": "app/json_data/string_replacements.json",
+  "funnify_word_replace_chance": 1,
+
+  "watch_json_data_files": true
 }

@@ -4,6 +4,9 @@
         "joskus",
         "ei koskaan"
     ],
+    "apostoli": [
+        "VIP-henkilö"
+    ],
     "auttaa": [
         "auttaa",
         "ei auta"
@@ -15,6 +18,9 @@
     "ei": [
         "ei",
         "ei varmaankaan"
+    ],
+    "ennusti": [
+        "ennusti (paitsi jos se ei toteutunut niin silloin ei oikeastaan ennustanutkaan)"
     ],
     "fariseukset": [
         "farmaseutit"
@@ -75,7 +81,8 @@
     ],
     "jeesus": [
         "jee sus",
-        "se puuseppäkaveri"
+        "se puuseppäkaveri",
+        "jesse"
     ],
     "jeesusta": [
         "jesseä",
@@ -83,7 +90,8 @@
     ],
     "jehova": [
         "jahvetti",
-        "iso J"
+        "iso J",
+        "hallintoelimen papparaiset"
     ],
     "jehovaa": [
         "jahvea",
@@ -102,13 +110,15 @@
     ],
     "jehovan": [
         "pilvikaverin",
-        "J-miehen"
+        "J-miehen",
+        "isoveljen"
     ],
     "julkaisuja": [
         "propagandamateriaaleja"
     ],
     "jumala": [
-        "yläkerran mielikuvitusystävä"
+        "yläkerran mielikuvitusystävä",
+        "hallintoelin"
     ],
     "jumalaa": [
         "taivaan pomoa",
@@ -119,6 +129,10 @@
     ],
     "jumalalta": [
         "jupeilta"
+    ],
+    "jumalamme": [
+        "mielikuvitusystävämme",
+        "diktaattorimme"
     ],
     "jumalan": [
         "justuksen",
@@ -157,12 +171,19 @@
     "kokouksista": [
         "zoom-palavereista"
     ],
+    "kristitty": [
+        "kultisti"
+    ],
     "kristittyjen": [
         "kulttiin kuuluvien"
     ],
     "luotat": [
         "luotat",
         "et luota"
+    ],
+    "luotettava": [
+        "luotettava",
+        "epäluotettava"
     ],
     "meitä": [
         "teitä",
@@ -192,6 +213,13 @@
         "onneksi",
         "epäonneksi"
     ],
+    "paavali": [
+        "pave"
+    ],
+    "paavalin": [
+        "Paulus-Sauluksen",
+        "Pave Maijasen"
+    ],
     "paholaisen": [
         "perkeleen"
     ],
@@ -205,7 +233,8 @@
         "nöyristelemme"
     ],
     "pelastaa": [
-        "pelastaa (normaalilta ja tasapainoiselta elämältä)"
+        "pelastaa (normaalilta ja tasapainoiselta elämältä)",
+        "eristää yhteiskunnasta"
     ],
     "peto": [
         "monsteri",
@@ -250,6 +279,10 @@
         "rauhassa",
         "sodassa"
     ],
+    "rohkaisevia": [
+        "rohkaisevia",
+        "lannistavia"
+    ],
     "rukoile": [
         "puhele itseksesi"
     ],
@@ -264,6 +297,9 @@
         "Raymond Franzin",
         "Lloyd Evansin",
         "Johanneksen pojan"
+    ],
+    "seurakunnille": [
+        "mediatalon paikallisosastoille"
     ],
     "sisartemme": [
         "naispuolisten kulttilaistovereidemme"
@@ -290,7 +326,8 @@
         "tosi ison pomon"
     ],
     "synnin": [
-        "oikeinteon"
+        "oikeinteon",
+        "normaalin toiminnan"
     ],
     "syntini": [
         "normaali toimintani"
@@ -326,10 +363,22 @@
     "vapauttaa": [
         "vapauttaa (rahoista ja vapaa-ajasta)"
     ],
+    "vapauttamisessa": [
+        "köyhdyttämisessä"
+    ],
+    "vapautusta": [
+        "rahoista vapautusta"
+    ],
     "varmoja": [
         "varmoja",
         "epävarmoja",
         "varmahkoja"
+    ],
+    "vastustajien": [
+        "niiden, joilla oli omia ajatuksia"
+    ],
+    "vastustuksesta": [
+        "eri mieltä olemisesta"
     ],
     "veljiemme": [
         "miespuolisten kulttilaistovereidemme"
