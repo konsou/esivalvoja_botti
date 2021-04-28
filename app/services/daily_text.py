@@ -5,6 +5,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta
 
 import aiohttp
+import pytz
 from bs4 import BeautifulSoup
 
 
@@ -22,9 +23,9 @@ BASE_URL = 'https://wol.jw.org/fi/wol/h/r16/lp-fi/'
 CACHE_INVALIDATION_TIME = 3600  # seconds
 
 
-def result_is_cached(date: datetime = None) -> bool:
+def result_is_cached(date: datetime = None, timezone: pytz.timezone = None) -> bool:
     if date is None:
-        date = datetime.now()
+        date = datetime.now(tz=timezone)
 
     if _cached_result.result is None or _cached_result.date is None:
         return False
@@ -34,9 +35,11 @@ def result_is_cached(date: datetime = None) -> bool:
             (date.day == c_date.day and date.month == c_date.month and date.year == c_date.year))
 
 
-async def daily_text(date: datetime = None) -> str:
+async def daily_text(date: datetime = None, timezone: pytz.timezone = None) -> str:
     if date is None:
-        date = datetime.now()
+        date = datetime.now(tz=timezone)
+
+    print(date)
 
     if result_is_cached(date=date):
         # print(f"cached request was fetched {time.time() - _cached_result.last_request_timestamp} s ago")
@@ -66,11 +69,13 @@ async def daily_text(date: datetime = None) -> str:
 
 if __name__ == '__main__':
     async def test_main():
+        timezone = pytz.timezone("Europe/Helsinki")
         today = datetime.now()
         tomorrow = today + timedelta(days=1)
         yesterday = today - timedelta(days=1)
 
-        print(await daily_text(yesterday))
+        print(await daily_text())
+        print(await daily_text(timezone=timezone))
 
 
     loop = asyncio.get_event_loop()

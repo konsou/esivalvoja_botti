@@ -1,6 +1,7 @@
 import json
 
 from singleton_decorator import singleton
+from pytz import timezone
 
 
 @singleton
@@ -9,6 +10,7 @@ class Options:
     funnify_text_replacement_file: str
     funnify_word_replace_chance: float
     watch_json_data_files: bool
+    timezone: timezone
 
     def __init__(self, options_filename: str):
         with open(options_filename, encoding='utf-8') as f:
