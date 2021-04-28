@@ -4,18 +4,14 @@
         "joskus",
         "ei koskaan"
     ],
+    "apostoli": [
+        "VIP-henkilö"
+    ],
     "asiainjärjestelmä": [
         "matrix"
     ],
     "asiainjärjestelmän": [
         "matrixin"
-    ],
-    "apostoli": [
-        "VIP-henkilö"
-    ],
-    "auttaa": [
-        "auttaa",
-        "ei auta"
     ],
     "auttavat": [
         "auttavat",
@@ -40,6 +36,9 @@
     ],
     "hengellisyytemme": [
         "yhteytemme toiseen ulottuvuuteen"
+    ],
+    "hengellä": [
+        "höyryllä"
     ],
     "henki": [
         "henki",
@@ -130,7 +129,8 @@
     ],
     "jumala": [
         "yläkerran mielikuvitusystävä",
-        "hallintoelin"
+        "hallintoelin",
+        "Tony Morris"
     ],
     "jumalaa": [
         "taivaan pomoa",
@@ -178,6 +178,9 @@
     "kannattaa": [
         "kannattaa",
         "ei kannata"
+    ],
+    "kenttäpalveluksessa": [
+        "käännytystyössä"
     ],
     "kokoukset": [
         "indoktrinointi-istunnot"
@@ -243,6 +246,9 @@
     "paholaisen": [
         "perkeleen"
     ],
+    "palvelijoista": [
+        "orjatyöläisistä"
+    ],
     "palvella": [
         "liehitellä"
     ],
@@ -286,6 +292,9 @@
     "puhtaina": [
         "puhtaina",
         "likaisina"
+    ],
+    "pyhällä": [
+        "saatanallisella"
     ],
     "raamattua": [
         "satukirjaa"
@@ -356,6 +365,10 @@
         "tahrattomia",
         "tahraisia"
     ],
+    "taivaaseen": [
+        "tähtien taa",
+        "yläkertaan"
+    ],
     "tuho": [
         "murha",
         "tappo",
@@ -367,11 +380,18 @@
     "turvallisuusriski": [
         "paloturvallisuusriski"
     ],
+    "tutkimisesta": [
+        "ulkoa opettelusta"
+    ],
     "uskoa": [
         "herkkäuskoisuutta"
     ],
     "uskomme": [
         "vahvistusharhamme"
+    ],
+    "uutista": [
+        "propagandaa",
+        "höpötystä"
     ],
     "vaatimattomasti": [
         "nöyristellen",
@@ -416,6 +436,10 @@
     "viisautta": [
         "viisautta",
         "tyhmyyttä"
+    ],
+    "voideltu": [
+        "liukastettu",
+        "öljytty"
     ],
     "voimaa": [
         "voimaa",
