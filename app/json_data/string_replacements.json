@@ -99,7 +99,8 @@
         "sitä ylintä kulttijohtajaa"
     ],
     "jehovaan": [
-        "isoonveljeen"
+        "isoonveljeen",
+        "jahvettiin"
     ],
     "jehovalle": [
         "jahvetille",
@@ -154,6 +155,9 @@
         "kaikkia",
         "noin puolia",
         "ei juuri ketään"
+    ],
+    "kaikkivaltias": [
+        "tosi **tosi** iso pomo"
     ],
     "kannattaa": [
         "kannattaa",
@@ -360,6 +364,9 @@
     "vainoa": [
         "sitä, että joku on eri mieltä"
     ],
+    "vainon": [
+        "lahjoitusten vähyyden"
+    ],
     "vapauttaa": [
         "vapauttaa (rahoista ja vapaa-ajasta)"
     ],
@@ -373,6 +380,9 @@
         "varmoja",
         "epävarmoja",
         "varmahkoja"
+    ],
+    "vastustajamme": [
+        "ihmisoikeuksien edistäjät"
     ],
     "vastustajien": [
         "niiden, joilla oli omia ajatuksia"
