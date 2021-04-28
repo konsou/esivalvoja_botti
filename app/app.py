@@ -1,8 +1,6 @@
 from __future__ import annotations
 import os
 from collections import defaultdict
-from time import time
-from random import choice
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
@@ -10,10 +8,9 @@ import discord
 from dotenv import load_dotenv
 
 from app.options import Options
-from app.response import load_responses, get_response
-from app.triggers import load_triggers, is_activated
-from app.services import daily_text
-from app.funnify_text import load_text_replacements, funnify_text
+from app.response import load_responses
+from app.triggers import load_triggers
+from app.funnify_text import load_text_replacements
 from app import event_handlers
 
 if TYPE_CHECKING:
@@ -49,10 +46,10 @@ def main():
     _triggers = load_triggers('app/json_data/triggers.json')
     _funnify_text_replacements = load_text_replacements(options.funnify_text_replacement_file,
                                                         options=options)
-    data = AppData(responses=_responses,
-                   triggers=_triggers,
-                   funnify_text_replacements=_funnify_text_replacements,
-                   last_regrets_timestamps=defaultdict(lambda: 0))  # default value: 0
+    app_data = AppData(responses=_responses,
+                       triggers=_triggers,
+                       funnify_text_replacements=_funnify_text_replacements,
+                       last_regrets_timestamps=defaultdict(lambda: 0))  # default value: 0
 
     client = discord.Client()
     print(f"Bot starting...")
@@ -69,7 +66,7 @@ def main():
     async def on_message(message):
         await event_handlers.on_message(message,
                                         client=client,
-                                        app_data=data,
+                                        app_data=app_data,
                                         options=options)
 
     client.run(TOKEN)
