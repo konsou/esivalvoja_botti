@@ -52,7 +52,7 @@ async def on_message(message: discord.Message,
             if not daily_text.result_is_cached():
                 await message.channel.send(f"Hetkinen vain, kaivan päiväntekstikirjasen hyllystä...")
 
-            text = await daily_text.daily_text()
+            text = await daily_text.daily_text(timezone=options.timezone)
 
             if options.watch_json_data_files:
                 _new_replacements = load_text_replacements(options.funnify_text_replacement_file,
