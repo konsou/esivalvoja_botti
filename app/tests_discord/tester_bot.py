@@ -16,16 +16,8 @@ if TYPE_CHECKING:
     from app.response import ResponseList, AllResponses
 
 load_dotenv()
-
 test_collector = TestCollector()
-
-
 ALL_RESPONSES = load_responses('app/json_data/responses.json')
-
-# Helper functions
-
-
-# Test functions
 
 
 @test_collector()
@@ -70,6 +62,8 @@ async def test_mention_regret(interface):
     valid_responses = []
     valid_responses.extend(ALL_RESPONSES['positive'])
     valid_responses.extend(ALL_RESPONSES['negative'])
+
+    print(f"username for bot is {interface.client.get_user(os.getenv('DISCORD_DEV_BOT_ID')).display_name}")
 
     # TODO: %name% replacement
     def check_message_valid(message: Message) -> bool:
