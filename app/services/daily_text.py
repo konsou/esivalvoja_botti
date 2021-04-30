@@ -2,7 +2,7 @@ import time
 import asyncio
 from typing import Optional
 from dataclasses import dataclass
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, tzinfo
 
 import aiohttp
 import pytz
@@ -23,7 +23,7 @@ BASE_URL = 'https://wol.jw.org/fi/wol/h/r16/lp-fi/'
 CACHE_INVALIDATION_TIME = 3600  # seconds
 
 
-def result_is_cached(date: datetime = None, timezone: pytz.timezone = None) -> bool:
+def result_is_cached(date: datetime = None, timezone: tzinfo = None) -> bool:
     if date is None:
         date = datetime.now(tz=timezone)
 
@@ -35,7 +35,7 @@ def result_is_cached(date: datetime = None, timezone: pytz.timezone = None) -> b
             (date.day == c_date.day and date.month == c_date.month and date.year == c_date.year))
 
 
-async def daily_text(date: datetime = None, timezone: pytz.timezone = None) -> str:
+async def daily_text(date: datetime = None, timezone: tzinfo = None) -> str:
     if date is None:
         date = datetime.now(tz=timezone)
 

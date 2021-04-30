@@ -1,7 +1,11 @@
 import json
+from datetime import tzinfo
+from typing import Dict, Callable
 
 from singleton_decorator import singleton
 from pytz import timezone
+
+CustomConverters = Dict[str, Callable]
 
 
 @singleton
@@ -10,21 +14,34 @@ class Options:
     funnify_text_replacement_file: str
     funnify_word_replace_chance: float
     watch_json_data_files: bool
-    timezone: timezone
+    timezone: tzinfo
+    custom_converters: CustomConverters
 
     def __init__(self, options_filename: str):
         with open(options_filename, encoding='utf-8') as f:
             _options = json.load(f)
 
-        print(self.__annotations__)
+        self.custom_converters = {
+            'timezone': timezone
+        }
+
+        # print(self.__annotations__)
+        # print(self.custom_converters)
 
         # Convert to defined types
         for option, value in _options.items():
+            if option in self.custom_converters:
+                # Convert the value with a custom converter function
+                setattr(self, option, self.custom_converters[option](value))
+                continue
+
             if option in self.__annotations__:
                 # Convert the value to the predefined type
                 setattr(self, option, self.__annotations__[option](value))
-            else:
-                setattr(self, option, value)
+                continue
+
+            # default
+            setattr(self, option, value)
 
         print(f"Options loaded")
         # print(self)
