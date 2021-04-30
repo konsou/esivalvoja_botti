@@ -17,12 +17,12 @@ if TYPE_CHECKING:
 
 load_dotenv()
 test_collector = TestCollector()
-ALL_RESPONSES = load_responses('app/json_data/responses.json')
+ALL_RESPONSES: AllResponses = load_responses('app/json_data/responses.json')
 
 
 @test_collector()
 async def test_mention_dont_understand(interface):
-    valid_responses = ALL_RESPONSES['dont_understand']
+    valid_responses: ResponseList = ALL_RESPONSES['dont_understand']
 
     def check_message_valid(message: Message) -> bool:
         result = any((valid_response in message.content for valid_response in valid_responses))
@@ -38,7 +38,7 @@ async def test_mention_dont_understand(interface):
 
 @test_collector()
 async def test_mention_regret(interface):
-    valid_responses = []
+    valid_responses: ResponseList = []
     valid_responses.extend(ALL_RESPONSES['positive'])
     valid_responses.extend(ALL_RESPONSES['negative'])
 
