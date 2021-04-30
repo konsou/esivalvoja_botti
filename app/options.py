@@ -10,6 +10,7 @@ CustomConverters = Dict[str, Callable]
 
 @singleton
 class Options:
+    options_filename: str
     last_regret_allowed_interval: int
     funnify_text_replacement_file: str
     funnify_word_replace_chance: float
@@ -18,9 +19,15 @@ class Options:
     custom_converters: CustomConverters
 
     def __init__(self, options_filename: str):
+        self.options_filename = options_filename
+
         with open(options_filename, encoding='utf-8') as f:
             _options = json.load(f)
 
+        # Custom converters are used if the type defined in annotations can't
+        # properly convert the option value
+        # Currently used to convert a timezone string
+        # to a datetime.tzinfo using pytz.timezone
         self.custom_converters = {
             'timezone': timezone
         }
@@ -28,7 +35,7 @@ class Options:
         # print(self.__annotations__)
         # print(self.custom_converters)
 
-        # Convert to defined types
+        # Convert options json data to defined types
         for option, value in _options.items():
             if option in self.custom_converters:
                 # Convert the value with a custom converter function
@@ -40,7 +47,7 @@ class Options:
                 setattr(self, option, self.__annotations__[option](value))
                 continue
 
-            # default
+            # default - just use the string value directly
             setattr(self, option, value)
 
         print(f"Options loaded")
