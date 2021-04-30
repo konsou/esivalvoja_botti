@@ -59,14 +59,29 @@ async def test_mention_dont_understand(interface):
             print(f"invalid response: {message.content}. Should contain one of: {valid_responses}")
         return result
 
-    await interface.send_message(f"<@{os.getenv('DISCORD_DEV_BOT_ID')}>")
+    await interface.send_message(f"Ymmärrätkös tätä <@{os.getenv('DISCORD_DEV_BOT_ID')}>")
     return await interface.wait_for_event("message",
                                           check=check_message_valid,
                                           timeout=5)
 
-    # response = await interface.wait_for_message()
-    # if not any((valid_response in response.content for valid_response in ALL_RESPONSES['dont_understand'])):
 
+@test_collector()
+async def test_mention_regret(interface):
+    valid_responses = []
+    valid_responses.extend(ALL_RESPONSES['positive'])
+    valid_responses.extend(ALL_RESPONSES['negative'])
+
+    # TODO: %name% replacement
+    def check_message_valid(message: Message) -> bool:
+        result = any((valid_response in message.content for valid_response in valid_responses))
+        if not result:
+            print(f"invalid response: {message.content}. Should contain one of: {valid_responses}")
+        return result
+
+    await interface.send_message(f"Kadun kovasti! <@{os.getenv('DISCORD_DEV_BOT_ID')}>")
+    return await interface.wait_for_event("message",
+                                          check=check_message_valid,
+                                          timeout=5)
 
 
 if __name__ == "__main__":
