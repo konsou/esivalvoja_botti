@@ -24,6 +24,7 @@ jobs:
       DISCORD_TEST_CLIENT_TOKEN: ${{ secrets.DISCORD_TEST_CLIENT_TOKEN }}
       BOT_KILL_COMMAND: ${{ secrets.BOT_KILL_COMMAND }}
       DISCORD_TEST_CHANNEL_ID: ${{ secrets.DISCORD_TEST_CHANNEL_ID }}
+      DISCORD_TEST_BOT_ID: ${{ secrets.DISCORD_TEST_BOT_ID }}
       DISCORD_DEV_BOT_ID: ${{ secrets.DISCORD_DEV_BOT_ID }}
 
     steps:
