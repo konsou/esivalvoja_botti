@@ -20,6 +20,7 @@ class TestEnvironment(unittest.TestCase):
         required_names_development = (
             'DISCORD_TOKEN_DEVELOPMENT',
             'DISCORD_TEST_CLIENT_TOKEN',
+            'DISCORD_TEST_BOT_ID',
             'DISCORD_TEST_CHANNEL_ID',
             'DISCORD_DEV_BOT_ID',
         )

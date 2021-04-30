@@ -1,4 +1,13 @@
 {
+    "aadam": [
+        "aatami"
+    ],
+    "aadamia": [
+        "aatamia"
+    ],
+    "aadamin": [
+        "aatamin"
+    ],
     "aina": [
         "aina",
         "joskus",
@@ -42,7 +51,8 @@
     ],
     "henki": [
         "henki",
-        "hengitys"
+        "hengitys",
+        "hönkä"
     ],
     "herran": [
         "rouvan",
@@ -72,6 +82,12 @@
     ],
     "ikeeni": [
         "ikeneni"
+    ],
+    "isä": [
+        "isukki"
+    ],
+    "isälleen": [
+        "isukilleen"
     ],
     "jeesuksella": [
         "jessellä",
@@ -200,6 +216,12 @@
     "kristittyjen": [
         "kulttiin kuuluvien"
     ],
+    "lihallinen": [
+        "vegaaninen"
+    ],
+    "lunastusuhrin": [
+        "murhan"
+    ],
     "luotat": [
         "luotat",
         "et luota"
@@ -236,6 +258,10 @@
         "onneksi",
         "epäonneksi"
     ],
+    "onnellisessa": [
+        "pakko-onnellisessa",
+        "feikkionnellisessa"
+    ],
     "paavali": [
         "pave"
     ],
@@ -257,6 +283,10 @@
     ],
     "palvomme": [
         "nöyristelemme"
+    ],
+    "paras": [
+        "paras",
+        "huonoin"
     ],
     "pelastaa": [
         "pelastaa (normaalilta ja tasapainoiselta elämältä)",
@@ -299,10 +329,19 @@
     "raamattua": [
         "satukirjaa"
     ],
+    "rakastaa": [
+        "\"rakastaa\""
+    ],
     "rakastamaan": [
         "rakastamaan",
         "vihaamaan",
         "näyttelemään rakkautta"
+    ],
+    "rakkaan": [
+        "ihan ok:n"
+    ],
+    "rakkaus": [
+        "\\\"rakkaus\\\""
     ],
     "rauhassa": [
         "rauhassa",
@@ -314,6 +353,9 @@
     ],
     "rukoile": [
         "puhele itseksesi"
+    ],
+    "rukouksemme": [
+        "tyhjät horinamme"
     ],
     "saatana": [
         "Lemmy Kilmister",
@@ -332,6 +374,9 @@
     ],
     "sisartemme": [
         "naispuolisten kulttilaistovereidemme"
+    ],
+    "siunaa": [
+        "kiroaa"
     ],
     "suuren": [
         "suuren",
@@ -365,9 +410,16 @@
         "tahrattomia",
         "tahraisia"
     ],
+    "taivaalliselle": [
+        "pilvien päälliselle"
+    ],
     "taivaaseen": [
         "tähtien taa",
         "yläkertaan"
+    ],
+    "tottelevaiset": [
+        "ne",
+        " jotka tekee tasan niin kuin käsketään"
     ],
     "tuho": [
         "murha",
