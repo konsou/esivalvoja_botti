@@ -10,6 +10,7 @@ from app.response import get_response
 from app.triggers import is_activated
 from app.services import daily_text
 from app.funnify_text import load_text_replacements, funnify_text
+from app.opinion import check_user_mentioned, get_opinion
 
 if TYPE_CHECKING:
     from app.app import AppData
@@ -67,3 +68,8 @@ async def on_message(message: discord.Message,
             reply_msg = f"Tässäpä sinulle tämän päivän teksti {message.author.mention}:\n\n{text} "
             print(reply_msg)
             await message.channel.send(reply_msg)
+
+        elif activated_trigger == 'opinion':
+            user = check_user_mentioned(message=message.content, opinions=app_data.opinions)
+            await message.channel.send(get_opinion(user_name=user, opinions=app_data.opinions))
+
