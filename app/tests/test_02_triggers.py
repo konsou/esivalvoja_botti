@@ -10,7 +10,7 @@ class TestTriggers(unittest.TestCase):
         """
         triggers = load_triggers('app/json_data/triggers.json')
         self.assertIsInstance(triggers, dict, 'triggers is a dictionary')
-        for trigger_key in ('regret', 'daily_text'):
+        for trigger_key in ('regret', 'daily_text', 'opinion'):
             self.assertIn(trigger_key, triggers.keys(), f'triggers has a key "{trigger_key}"')
             self.assertIn('partial', triggers[trigger_key], f'{trigger_key} triggers has a key "partial"')
             self.assertTrue(len(triggers[trigger_key]['partial']),
@@ -58,5 +58,25 @@ class TestTriggers(unittest.TestCase):
             self.assertIsNone(is_activated(message=t, triggers=all_triggers),
                               f"trigger shouldn't activate: \"{t}\"")
 
+    def test_trigger_opinion(self):
+        """
+        Test "opinion" trigger activation
+        """
+        opinions = load_triggers('app/json_data/triggers.json')
+        opinions_triggers = opinions['opinion']
+        test_triggers_positive = (opinions_triggers['partial'][0],
+                                  "Mikäs on mielipiteesi käyttäjästä (joku)",
+                                  "mielipide errki?",
+                                  )
+        test_triggers_negative = ("well this shouldn't activate",
+                                  f"{opinions_triggers['partial'][0][:-1]}!!",
+                                  )
+        for t in test_triggers_positive:
+            self.assertEqual('opinion', is_activated(message=t, triggers=opinions),
+                             f"trigger should activate: \"{t}\"")
+
+        for t in test_triggers_negative:
+            self.assertIsNone(is_activated(message=t, triggers=opinions),
+                              f"trigger shouldn't activate: \"{t}\"")
 
 

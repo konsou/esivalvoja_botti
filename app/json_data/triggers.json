@@ -11,5 +11,11 @@
       "päivänteksti",
       "päivän sana"
     ]
+  },
+  "opinion": {
+    "partial": [
+      "mielipide",
+      "mielipiteesi"
+    ]
   }
 }

@@ -9,6 +9,7 @@ class TestJson(unittest.TestCase):
         """
         json_files = ('app/json_data/responses.json',
                       'app/json_data/triggers.json',
+                      'app/json_data/opinions.json',
                       'app/options.json')
         for json_file in json_files:
             try:

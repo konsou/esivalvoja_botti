@@ -11,12 +11,14 @@ from app.options import Options
 from app.response import load_responses
 from app.triggers import load_triggers
 from app.funnify_text import load_text_replacements
+from app.opinion import load_opinions
 from app import event_handlers
 
 if TYPE_CHECKING:
     from app.response import AllResponses
     from app.triggers import AllTriggers
     from app.funnify_text import TextReplacements
+    from app.opinion import Opinions
 
 load_dotenv()
 
@@ -36,6 +38,7 @@ class AppData:
     responses: AllResponses
     triggers: AllTriggers
     funnify_text_replacements: TextReplacements
+    opinions: Opinions
     # key: user id, value: timestamp of last regret
     last_regrets_timestamps: defaultdict[int, float]
 
@@ -46,9 +49,11 @@ def main():
     _triggers = load_triggers('app/json_data/triggers.json')
     _funnify_text_replacements = load_text_replacements(options.funnify_text_replacement_file,
                                                         options=options)
+    _opinions = load_opinions('app/json_data/opinions.json')
     app_data = AppData(responses=_responses,
                        triggers=_triggers,
                        funnify_text_replacements=_funnify_text_replacements,
+                       opinions=_opinions,
                        last_regrets_timestamps=defaultdict(lambda: 0))  # default value: 0
 
     client = discord.Client()
