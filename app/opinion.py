@@ -20,7 +20,7 @@ def check_user_mentioned(message: str, opinions: Opinions) -> Optional[str]:
     return None
 
 
-def get_opinion(user_name: str,
+def get_opinion(user_name: Optional[str],
                 opinions: Opinions) -> str:
     if user_name in opinions:
         return opinions[user_name]
