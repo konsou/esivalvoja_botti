@@ -12,7 +12,7 @@ python main.py &
 BOT_PID=$!
 echo "Bot PID is ${BOT_PID}"
 echo "Wait for bot to start and connect..."
-sleep 5
+sleep 6
 echo "Start the tester bot and run tests..."
 PYTHONPATH=$(pwd)
 export PYTHONPATH # set the currend working directory as PYTHONPATH. Needed for imports to work in the following script.
