@@ -15,7 +15,9 @@ class TestEnvironment(unittest.TestCase):
         self.assertTrue(any(s == environment for s in ('production', 'development')),
                         "ENVIRONMENT must be 'production' or 'development'")
 
-        required_names_always = ('BOT_KILL_COMMAND', )
+        required_names_always = (
+            'BOT_KILL_COMMAND',
+            )
         required_names_production = ('DISCORD_TOKEN', )
         required_names_development = (
             'DISCORD_TOKEN_DEVELOPMENT',
