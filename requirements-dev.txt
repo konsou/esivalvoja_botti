@@ -1,5 +1,5 @@
 distest==0.6.2
 mypy==0.902
 types-chardet==0.1.3
-types-pytz==0.1.2
+types-pytz==2022.6.0.1
 nose2==0.10.0
